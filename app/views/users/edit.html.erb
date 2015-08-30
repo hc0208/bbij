@@ -3,17 +3,17 @@
 <div class="row">
   <div class="renew_info panel panel-default">
     <%= form_for current_user do |f| %>
-      <h2>登録情報</h2>
+      <h2>Profile</h2>
       <div class="form-group">
-        <h3>プロフィール画像を選択</h3>
+        <h3>Foto</h3>
         <div class="renew col-lg-6">
         <%= f.file_field :avatar, class: 'form-control floating-label', placeholder: '画像アップロード' %>
         </div>
-        <h3>ニックネームを入力</h3>
+        <h3>Nickname</h3>
         <div class="renew col-lg-6">
           <%= f.text_field :nickname, placeholder: '', class: 'form-control', maxlength: 15 %>
         </div>
-        <h3>何か一言</h3>
+        <h3>Comment</h3>
         <div class="renew col-lg-6">
           <%= f.text_field :introduce, placeholder: '', class: 'form-control', maxlength: 100 %>
         </div>
