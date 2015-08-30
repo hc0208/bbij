@@ -1,0 +1,18 @@
+<div class= "time_line panel panel-default clearfix">
+     <div class ="clearfix">
+       <div class="image_user" style="background-image: url(<%= reply.user.avatar.url(:medium) %>);"></div>
+       <div class ="tweet_user"><i class="fa fa-user"></i> <%= reply.user.nickname %></div>
+       <% if user_signed_in? && current_user.id == reply.user_id %>
+       <%= link_to "/replies/#{reply.id}", :method => :delete do %>
+        <i class="trash fa fa-trash-o"></i>
+        <% end %>
+       <% end %>
+       <div class="time"><time><%= time_ago_in_words reply.created_at %></time> ago</div>
+     </div>
+
+     <div class="panel panel-default">
+       <div class="panel-body">
+          <%= br(reply.text) %>
+       </div>
+     </div>
+</div>

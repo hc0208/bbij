@@ -1,0 +1,14 @@
+<div class="post_form panel panel-default">
+
+  <div class="panel-body">
+    <h3><div class ="form_title">コメントする</div></h3>
+  </div>
+    <div class= "post_text">
+    <%= form_for(@reply) do |f| %>
+      <%= f.text_area :text, placeholder: "ex) Kalimat itu benar. いい文章ですね。", cols:"30", rows:"8", autofocus:"true", class:"" %>
+      <%= f.hidden_field :tweet_id %>
+      <%= f.submit "コメント", class:"btn btn-info navbar-btn"%>
+    <% end %>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class = "contents row clearfix">
+  <% if user_signed_in? %>
+  <div class = "log_in_user panel panel-default">
+     <div class ="clearfix">
+       <div class="image_user" style="background-image: url(<%= current_user.avatar.url(:medium) %>);"></div>
+       <%= link_to user_path(current_user.id) do %>
+       <div class ="name_user"><i class="fa fa-user"></i> <%= current_user.nickname %></div>
+       <% end %>
+     </div>
+      <%= link_to edit_user_path(current_user.id) do %><div class="edit_profile"><button type="button" class="btn btn-success navbar-btn"><i class="fa fa-pencil-square-o"></i> 編集</button>
+      </div>
+      <% end %>
+     <div class ="my_comment"><p><%= current_user.introduce %></p></div>
+  </div>
+  <% else %>
+  <div class = "log_in_user panel panel-default">
+     <div class ="clearfix">
+       <div class = "starttitle">
+        <h4>Apakah Anda ingin belajar bahasa Indonesia atau Jepang?</h4>
+        <p>Kalau Anda orang Inodnesia, Anda bisa tanya tentang bahasa Jepang. Kalau Anda orang Jepang, Anda bisa tanya tentang bahasa Indonesia. Anda bisa menjawab pertanyaan kalau pertanyaannya bahasa Anda.</p>
+         <a href ="/users/sign_up"><button type="button" class="btn btn-info navbar-btn"> START</button></a>
+       </div>
+     </div>
+   </div>
+  <% end %>
+
+  <div class ="right_content">
+    <div class ="post_time_line">
+          <div class="button_center">
+            <a href="/tweets/new"><button type="button" class="btn btn-danger navbar-btn_new"><i class="fa fa-pencil"></i> 質問する</button></a>
+          </div>
+    </div>
+
+    <%= render :partial => "tweet", :collection => @tweets %>
+
+    <div class = "paginate">
+      <%= paginate(@tweets) %>
+    </div>
+  </div>
+
+  </div>

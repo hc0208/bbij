@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BBIJ<%= yield :title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="myfirstapp/app/assets/stylesheets/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">BBIJ</a>
+      <p class="navbar-text">Kalimat Anda benar atau tidak</p>
+
+      <div class = "navbar-form navbar-left">
+      <%= form_tag('/search', method: :get) do %>
+        <div class="form-group">
+        <input name ="keyword" type="text" class="form-control" placeholder="Search">
+        </div>
+      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+      <%end%>
+      <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+      </form>
+    </div>
+  </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+       <% if user_signed_in? %>
+       <button type="button" class="btn btn-info navbar-btn">
+       <%= link_to destroy_user_session_path, :method => :delete do %>
+         <i class="log_out fa fa-sign-out"> log out</i>
+       <% end %>
+       </button>
+      <a href="/users/<%= current_user.id %>"><button type="button" class="btn btn-info navbar-btn"><i class="fa fa-user"></i></button></a>
+      <% else %>
+      <a href ="/users/sign_in"><button type="button" class="btn btn-info navbar-btn"><i class="fa fa-sign-in"> log in</i></button></a>
+      <a href ="/users/sign_up"><button type="button" class="btn btn-info navbar-btn"><i class="fa fa-user-plus"></i></button></a>
+      <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<%= yield %>
+
+<footer></footer>
+
+</body>
+</html>

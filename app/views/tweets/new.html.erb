@@ -1,0 +1,14 @@
+<div class="post_form panel panel-default">
+
+  <div class="panel-body">
+    <h3><div class ="form_title">質問する</div></h3>
+  </div>
+
+    <%= form_tag('/tweets', method: :post) do %>
+    <div class="post_text">
+      <textarea cols="30" name="text" placeholder="ex) 「わたしは日本語を勉強しています」Apakah kalimat ini benar atau tidak?" rows="8"></textarea>
+      <input class = "btn btn-info navbar-btn" type="submit" value="質問する">
+    </div>
+    <% end %>
+
+</div>

@@ -1,0 +1,8 @@
+<% provide :title, " | search" %>
+
+<div class="my_page contents row">
+ <div class = "search_panel panel panel-default">
+  <p><i class="icon_search fa fa-search"></i> 検索結果</p>
+ </div>
+  <%= render :partial => "tweet", :collection => @tweets %>
+</div>

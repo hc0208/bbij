@@ -1,0 +1,8 @@
+<% provide :title, " | comments" %>
+
+<div class="my_page contents row">
+ <div class = "comment_panel panel panel-default">
+   <p><i class="fa fa-comments-o"></i> コメント一般</p>
+ </div>
+  <%= render partial: "tweets/reply", collection: @replies %>
+</div>

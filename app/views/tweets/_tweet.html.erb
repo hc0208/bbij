@@ -1,0 +1,33 @@
+<div class= "time_line panel panel-default clearfix">
+     <div class ="clearfix">
+       <div class="image_user" style="background-image: url(<%= tweet.user.avatar.url(:medium) %>);"></div>
+       <%= link_to user_path(tweet.user_id) do %>
+       <div class ="tweet_user"><i class="fa fa-user"></i> <%= tweet.user.nickname %>
+       </div>
+       <% end %>
+       <div class ="reply_count">
+       <%= link_to "#{tweet.replies.count}", tweet_path(tweet) %>
+       </div>
+       <i class="comment comment1 fa fa-comments-o"></i>
+       <% if user_signed_in? %>
+       <%= form_tag(new_reply_path, method: :get, class: "") do %>
+        <%= hidden_field_tag(:tweet_id, tweet.id) %>
+        <%= button_tag :type => "submit", :class =>"comment2" do %>
+         <i class="fa fa-reply"></i>
+        <% end %>
+       <% end %>
+       <% end %>
+       <% if user_signed_in? && current_user.id == tweet.user_id %>
+       <%= link_to "/tweets/#{tweet.id}", :method => :delete do %>
+        <i class="trash fa fa-trash-o"></i>
+        <% end %>
+       <% end %>
+       <div class="time"><time><%= time_ago_in_words tweet.created_at %></time> ago</div>
+     </div>
+
+     <div class="panel panel-default">
+       <div class="panel-body">
+          <%= br(tweet.text) %>
+       </div>
+     </div>
+</div>
