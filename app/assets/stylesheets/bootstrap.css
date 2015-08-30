@@ -6808,7 +6808,6 @@ button.close {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 5px;
-  background-color: ;
 }
 .log_in_user{
   float: left;
@@ -6884,7 +6883,6 @@ button.close {
 }
 .post_form{
   width: 600px;
-  height:  px;
   margin: 0 auto;
   background-image: url(DSC_0070_Fotor.jpg);
   background-size: cover;
@@ -6919,7 +6917,6 @@ body {
   color: gray;
   margin: 30px;
   width: 600px;
-  height:  px;
   margin: 0 auto;
 }
 .sign_up h2 {
@@ -6975,7 +6972,6 @@ margin: 5px;
 
 .comment2 {
   float: right;
-  margin-right: px;
   margin-bottom: 7px;
   margin-top: 4px;
   background-color: white;
